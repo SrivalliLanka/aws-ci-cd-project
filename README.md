@@ -6,12 +6,15 @@ A production-grade machine learning system that predicts a student's **math scor
 
 ## What This Project Is About
 
-The focus shifts from *"Does the model work?"* to *"Is the pipeline robust and automated?"*
+> *The focus shifts from "Does the model work?" to "Is the pipeline robust and automated?"*
 
-- **Data Science core** is left untouched. The model selection, preprocessing, and prediction logic are the same as in a standard notebook-driven workflow.
-- **A `Dockerfile`** ensures the Python environment, OS dependencies, and package versions are perfectly mirrored between a developer's laptop and the cloud server — eliminating the *"works on my machine"* problem.
-- **A GitHub Actions workflow** acts as an automated validation gate. Every push to `main` builds the Docker image and pushes it to AWS ECR. A broken pipeline means a blocked deployment.
-- **An audit trail** is created from commit SHA → Docker image tag → deployed container, making the lifecycle of every model version traceable.
+This is not just a machine learning model — it is a **deployable system**. The Data Science logic stays untouched; what changes is everything around it.
+
+| Concern | Solution |
+|---|---|
+| Reproducible environments | `Dockerfile` locks the Python version, OS, and all dependencies — the same image runs on any machine or cloud server |
+| Automated quality gate | GitHub Actions builds and validates the Docker image on every push to `main` — a broken build blocks deployment |
+| Full traceability | Each Docker image is tagged with the **git commit SHA**, creating a clear audit trail from code change to running container |
 
 ---
 
